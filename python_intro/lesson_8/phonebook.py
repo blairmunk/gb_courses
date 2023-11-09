@@ -58,7 +58,8 @@ def change_number(phone_book,last_name,new_number):
 	for entry in phone_book:
 		for value in entry.values():
 			if entry.get('Фамилия',0) == last_name:
-				return entry.get('Телефон')
+				entry["Телефон"] = new_number
+				return 'Телефонный номер изменён'
 	return('Такой фамилии нет')
 
 
