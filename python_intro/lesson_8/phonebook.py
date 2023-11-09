@@ -59,6 +59,8 @@ def change_number(phone_book,last_name,new_number):
 		for value in entry.values():
 			if entry.get('Фамилия',0) == last_name:
 				entry["Телефон"] = new_number
+				filename = input('Save as: ')
+				write_txt(filename,phone_book)
 				return 'Телефонный номер изменён'
 	return('Такой фамилии нет')
 
