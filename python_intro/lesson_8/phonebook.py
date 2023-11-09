@@ -5,6 +5,7 @@ def show_menu():
 	'4. Удалить запись',
 	'5. Найти абонента по номеру телефона',
 	'6. Добавить абонента в справочник',
+	'99. Копирование данных из одного файла в другой по номеру строки',
 	'7. Закончить работу', sep = '\n')
 	choice=int(input())
 	return choice
@@ -34,7 +35,13 @@ def work_with_phonebook():
 			user_data=input('Введите, отделяя запятой: Фамилия, Имя, Телефон, Описание \n')
 			add_user(phone_book,user_data)
 			write_txt('phonebook.txt',phone_book)
-			
+		elif choice==99:
+			string_number=int(input('Номер строки (шапка не в счёт): '))
+			if 0 < string_number <= len(phone_book) + 1:
+				filename=input('Укажите название файла ') 
+				write_txt(filename,get_string(phone_book,string_number))
+			else: print('Нет такой строки')
+						
 		choice=show_menu()		
 
 def print_result(phone_book):
@@ -92,6 +99,13 @@ def add_user(phone_book,user_data):
 	phone_book.append(new_record)
 	print('Запись добавлена')
 	return phone_book
+
+def get_string(phone_book,string_number):
+	if 0 < string_number <= len(phone_book) + 1:
+		finded_string = []
+		finded_string.append(phone_book[string_number-1])
+		return finded_string
+
 
 def read_txt(filename):
 	phone_book=[]
