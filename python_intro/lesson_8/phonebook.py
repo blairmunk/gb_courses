@@ -31,7 +31,7 @@ def work_with_phonebook():
 			number=input('number ')
 			print(find_by_number(phone_book,number))
 		elif choice==6:
-			user_data=input('new data ')
+			user_data=input('Введите, отделяя запятой: Фамилия, Имя, Телефон, Описание \n')
 			add_user(phone_book,user_data)
 			write_txt('phonebook.txt',phone_book)
 			
@@ -85,6 +85,13 @@ def find_by_number(phone_book,number):
 					entry_out += value + " "
 				return entry_out
 	return('Телефон не найден')
+
+def add_user(phone_book,user_data):
+	fields=['Фамилия', 'Имя', 'Телефон', 'Описание']
+	new_record = dict(zip(fields, user_data.split(',')))
+	phone_book.append(new_record)
+	print('Запись добавлена')
+	return phone_book
 
 def read_txt(filename):
 	phone_book=[]
