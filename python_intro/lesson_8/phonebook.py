@@ -75,6 +75,7 @@ def delete_by_lastname(phone_book,last_name):
 				return('Запись удалена')
 	return('Такой фамилии нет')
 
+
 def read_txt(filename):
 	phone_book=[]
 	fields=['Фамилия', 'Имя', 'Телефон', 'Описание']
