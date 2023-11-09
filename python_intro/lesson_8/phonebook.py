@@ -53,6 +53,14 @@ def find_by_lastname(phone_book,last_name):
 				return entry.get('Телефон')
 	return('Такой фамилии нет')
 
+def delete_by_lastname(phone_book,last_name):
+	for entry in phone_book:
+		for value in entry.values():
+			if entry.get('Фамилия',0) == last_name:
+				phone_book.pop(phone_book.index(entry))
+				return('Запись удалена')
+	return('Такой фамилии нет')
+
 def read_txt(filename):
 	phone_book=[]
 	fields=['Фамилия', 'Имя', 'Телефон', 'Описание']
