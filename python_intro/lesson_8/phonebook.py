@@ -76,6 +76,16 @@ def delete_by_lastname(phone_book,last_name):
 	return('Такой фамилии нет')
 
 
+def find_by_number(phone_book,number):
+	entry_out = ''
+	for entry in phone_book:
+		for value in entry.values():
+			if entry.get('Телефон',0) == number:
+				for value in entry.values():
+					entry_out += value + " "
+				return entry_out
+	return('Телефон не найден')
+
 def read_txt(filename):
 	phone_book=[]
 	fields=['Фамилия', 'Имя', 'Телефон', 'Описание']
