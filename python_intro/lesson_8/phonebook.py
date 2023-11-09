@@ -53,11 +53,22 @@ def find_by_lastname(phone_book,last_name):
 				return entry.get('Телефон')
 	return('Такой фамилии нет')
 
+
+def change_number(phone_book,last_name,new_number):
+	for entry in phone_book:
+		for value in entry.values():
+			if entry.get('Фамилия',0) == last_name:
+				return entry.get('Телефон')
+	return('Такой фамилии нет')
+
+
 def delete_by_lastname(phone_book,last_name):
 	for entry in phone_book:
 		for value in entry.values():
 			if entry.get('Фамилия',0) == last_name:
 				phone_book.pop(phone_book.index(entry))
+				filename = input('Save as: ')
+				write_txt(filename,phone_book)
 				return('Запись удалена')
 	return('Такой фамилии нет')
 
@@ -73,7 +84,7 @@ def read_txt(filename):
 
 def write_txt(filename , phone_book):
 
-	with open('phonebook.txt','w',encoding='utf-8') as phout:
+	with open(filename,'w',encoding='utf-8') as phout:
 
 		for i in range(len(phone_book)):
 			s=''
