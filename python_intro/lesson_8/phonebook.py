@@ -101,10 +101,9 @@ def add_user(phone_book,user_data):
 	return phone_book
 
 def get_string(phone_book,string_number):
-	if 0 < string_number <= len(phone_book) + 1:
-		finded_string = []
-		finded_string.append(phone_book[string_number-1])
-		return finded_string
+	finded_string = []
+	finded_string.append(phone_book[string_number-1])
+	return finded_string
 
 
 def read_txt(filename):
