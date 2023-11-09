@@ -46,6 +46,12 @@ def print_result(phone_book):
 			print(value,end=' ')
 	print()
 
+def find_by_lastname(phone_book,last_name):
+	for entry in phone_book:
+		for value in entry.values():
+			if entry.get('Фамилия',0) == last_name:
+				return entry.get('Телефон')
+	return('Такой фамилии нет')
 
 def read_txt(filename):
 	phone_book=[]
